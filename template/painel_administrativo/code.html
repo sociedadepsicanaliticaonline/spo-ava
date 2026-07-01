@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SPO - Painel Administrativo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Libre+Caslon+Text:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#4f5fa3",
+                "surface-variant": "#e1e3e4",
+                "tertiary-fixed": "#7a2d2e",
+                "surface-dim": "#d9dadb",
+                "inverse-surface": "#202646",
+                "inverse-on-surface": "#f0f1f2",
+                "background": "#f8f9fa",
+                "primary-fixed": "#2e539d",
+                "on-error": "#ffffff",
+                "surface": "#f8f9fa",
+                "surface-container-high": "#e7e8e9",
+                "secondary-fixed": "#4f5fa3",
+                "on-surface": "#191c1d",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f8f9fa",
+                "on-secondary-container": "#ffffff",
+                "surface-container": "#edeeef",
+                "surface-container-low": "#f3f4f5",
+                "primary-fixed-dim": "#4f5fa3",
+                "on-tertiary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e1e3e4",
+                "on-tertiary-fixed-variant": "#ffffff",
+                "on-error-container": "#93000a",
+                "tertiary-container": "#7a2d2e",
+                "on-tertiary-container": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#ffffff",
+                "outline": "#75777f",
+                "outline-variant": "#c5c6cf",
+                "on-background": "#191c1d",
+                "primary-container": "#2e539d",
+                "error": "#ba1a1a",
+                "tertiary": "#7a2d2e",
+                "secondary-fixed-dim": "#4f5fa3",
+                "primary": "#2e539d",
+                "inverse-primary": "#4f5fa3",
+                "on-primary-container": "#ffffff",
+                "on-surface-variant": "#44474e",
+                "on-secondary-fixed-variant": "#ffffff",
+                "tertiary-fixed-dim": "#7a2d2e",
+                "on-primary-fixed": "#ffffff",
+                "secondary": "#202646",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed": "#ffffff",
+                "on-secondary-fixed": "#ffffff",
+                "surface-tint": "#2e539d"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "unit": "8px",
+                "gutter": "24px",
+                "container-max": "1200px",
+                "margin-desktop": "64px",
+                "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                "title-md": ["Inter"],
+                "headline-lg-mobile": ["Libre Caslon Text"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-lg": ["Libre Caslon Text"],
+                "label-sm": ["Inter"],
+                "display-lg": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+                "body-lg": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c5c6cf; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar Anchor -->
+<aside class="flex flex-col h-screen w-64 docked left-0 bg-surface-container-low border-r border-outline-variant shadow-sm py-unit flex-shrink-0 sticky top-0">
+<div class="px-6 py-8">
+<h1 class="font-display-lg text-primary text-title-md font-bold mb-1">SPO</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Painel Administrativo</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+<!-- Active State Logic: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-on-primary rounded-xl font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-sm text-label-sm">Meus Cursos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-label-sm text-label-sm">Materiais</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm">Certificados</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="font-label-sm text-label-sm">Blog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Configurações</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-sm text-label-sm">Suporte</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-sm text-label-sm">Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Anchor -->
+<header class="flex justify-between items-center w-full px-8 py-4 bg-surface border-b border-outline-variant sticky top-0 z-30">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Gestão de Conteúdo</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-primary outline-none" placeholder="Buscar alunos ou cursos..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-title-md text-sm hover:opacity-90 transition-all active:scale-95">
+                    Portal do Aluno
+                </button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<img alt="Admin" class="w-10 h-10 rounded-full border-2 border-secondary-container" data-alt="A professional headshot of a middle-aged male administrator in a clean-cut corporate attire. The background is a soft-focus office with warm golden lighting that reflects the academic and clinical environment. He has a welcoming yet authoritative expression, suggesting trust and expertise in the field of psychoanalysis and management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKlS0vfOCkCyRpW2vPhystkB2VncXhdUoFcRn-k7ukDOJUEpA4VzGplpxojcve6xRwbTk0-xeS_bDB8BrXRxQLTSAkVAHUrlx1CjbiEO4BfRaOEuKMVGDcXtACxfrVSgOpce7K2jZm8_RNnupLFMVEL07wbDcmEvVeHw3UhZLe6oF6cY1Cu037ZVk-m0XBKNfes41D9Cloz6kKDfvHCCKbTFYDOSJS5eDmC1ahVcH_VPg5r3XTM5LSNs-ZAO6j6ncM0otXvY_rv-o"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Dashboard Area -->
+<div class="p-8 max-w-[1400px] mx-auto w-full">
+<!-- Quick Stats Bento -->
+<div class="bento-grid mb-8">
+<div class="col-span-12 md:col-span-3 bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="person_add">person_add</span>
+</div>
+<span class="text-green-600 font-bold text-xs">+12%</span>
+</div>
+<p class="text-on-surface-variant font-label-sm mb-1 uppercase tracking-wider">Novos Alunos</p>
+<h3 class="font-headline-lg text-2xl text-primary">1,284</h3>
+</div>
+<div class="col-span-12 md:col-span-3 bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-secondary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="payments">payments</span>
+</div>
+<span class="text-green-600 font-bold text-xs">+5.4%</span>
+</div>
+<p class="text-on-surface-variant font-label-sm mb-1 uppercase tracking-wider">Matrículas Ativas</p>
+<h3 class="font-headline-lg text-2xl text-primary">456</h3>
+</div>
+<div class="col-span-12 md:col-span-3 bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container-high p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="book">book</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-label-sm mb-1 uppercase tracking-wider">Cursos Publicados</p>
+<h3 class="font-headline-lg text-2xl text-primary">24</h3>
+</div>
+<div class="col-span-12 md:col-span-3 bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container-high p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="forum">forum</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-label-sm mb-1 uppercase tracking-wider">Posts no Blog</p>
+<h3 class="font-headline-lg text-2xl text-primary">158</h3>
+</div>
+</div>
+<!-- Management & Charts Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Chart Area -->
+<div class="col-span-12 lg:col-span-8 bg-white p-8 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="font-title-md text-primary">Crescimento de Matrículas</h4>
+<p class="text-on-surface-variant font-body-md">Relatório de desempenho dos últimos 6 meses</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded bg-surface-container text-on-surface-variant text-xs">Semanal</button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary text-xs">Mensal</button>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 px-4 relative">
+<!-- Simulated Chart Bars -->
+<div class="absolute inset-0 border-b border-l border-outline-variant/30 flex flex-col justify-between">
+<div class="border-t border-outline-variant/10 w-full h-0"></div>
+<div class="border-t border-outline-variant/10 w-full h-0"></div>
+<div class="border-t border-outline-variant/10 w-full h-0"></div>
+</div>
+<div class="w-full flex justify-around items-end h-full pt-4 relative z-10">
+<div class="w-12 bg-primary/20 rounded-t h-[40%] hover:bg-primary transition-all group relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">JAN</span>
+</div>
+<div class="w-12 bg-primary/20 rounded-t h-[65%] hover:bg-primary transition-all group relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">FEV</span>
+</div>
+<div class="w-12 bg-secondary-container rounded-t h-[55%] hover:bg-primary transition-all group relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">MAR</span>
+</div>
+<div class="w-12 bg-primary/20 rounded-t h-[85%] hover:bg-primary transition-all group relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">ABR</span>
+</div>
+<div class="w-12 bg-primary/20 rounded-t h-[70%] hover:bg-primary transition-all group relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">MAI</span>
+</div>
+<div class="w-12 bg-primary rounded-t h-[95%] hover:opacity-80 transition-all group relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">JUN</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Courses Sidebar -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-white p-6 rounded-xl border border-outline-variant flex-1">
+<h4 class="font-title-md text-primary mb-4">Cursos em Alta</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="psychology">psychology</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-sm truncate">Introdução à Freud</p>
+<p class="text-xs text-on-surface-variant">124 alunos ativos</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="self_improvement">self_improvement</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-sm truncate">Psicanálise Clínica II</p>
+<p class="text-xs text-on-surface-variant">89 alunos ativos</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="child_care">child_care</span>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-sm truncate">Desenvolvimento Infantil</p>
+<p class="text-xs text-on-surface-variant">67 alunos ativos</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline-variant rounded text-xs font-bold text-on-surface-variant hover:bg-surface-variant transition-colors">VER TODOS OS CURSOS</button>
+</div>
+</div>
+</div>
+<!-- Management Table Section -->
+<section class="mt-8 bg-white rounded-xl border border-outline-variant overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h4 class="font-title-md text-primary">Atividades Recentes dos Alunos</h4>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 text-xs font-medium text-on-surface-variant border border-outline-variant px-3 py-1.5 rounded hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                            Filtrar
+                        </button>
+<button class="flex items-center gap-2 text-xs font-medium text-primary border border-primary px-3 py-1.5 rounded hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                            Exportar CSV
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-sm uppercase text-[10px] tracking-widest border-b border-outline-variant">
+<th class="px-6 py-4">Estudante</th>
+<th class="px-6 py-4">Curso</th>
+<th class="px-6 py-4">Progresso</th>
+<th class="px-6 py-4">Último Acesso</th>
+<th class="px-6 py-4 text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-xs">AC</div>
+<div>
+<p class="text-sm font-semibold">Ana Cavalcanti</p>
+<p class="text-[10px] text-on-surface-variant">ana.c@email.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Psicanálise Lacaniana</td>
+<td class="px-6 py-4">
+<div class="w-32 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+<p class="text-[10px] mt-1 font-bold">75%</p>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Há 15 minutos</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center font-bold text-primary text-xs">RM</div>
+<div>
+<p class="text-sm font-semibold">Ricardo Mendes</p>
+<p class="text-[10px] text-on-surface-variant">ric.m@email.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Semiótica e Inconsciente</td>
+<td class="px-6 py-4">
+<div class="w-32 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/4"></div>
+</div>
+<p class="text-[10px] mt-1 font-bold">25%</p>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Há 2 horas</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/10 flex items-center justify-center font-bold text-tertiary text-xs">JS</div>
+<div>
+<p class="text-sm font-semibold">Juliana Souza</p>
+<p class="text-[10px] text-on-surface-variant">ju.souza@email.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Transferência Clínica</td>
+<td class="px-6 py-4">
+<div class="w-32 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-full"></div>
+</div>
+<p class="text-[10px] mt-1 font-bold">100%</p>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Ontem, 18:30</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant text-center">
+<button class="text-primary font-bold text-xs hover:underline uppercase tracking-widest">Ver Painel Completo de Alunos</button>
+</div>
+</section>
+</div>
+<!-- Footer Anchor -->
+<footer class="w-full py-margin-desktop px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-unit-gutter bg-inverse-surface text-on-primary mt-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-display-lg text-secondary-fixed text-title-md">SPO</span>
+<p class="font-body-md text-body-md text-surface-variant max-w-sm text-center md:text-left">© 2024 Sociedade Psicanalítica Online. Todos os direitos reservados.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Privacidade</a>
+<a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed transition-colors" href="#">FAQ</a>
+</div>
+</footer>
+</main>
+<script>
+        // Simple notification toggle interaction
+        document.querySelectorAll('.group').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95', 'opacity-80');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95', 'opacity-80');
+            });
+        });
+    </script>
+</body></html>

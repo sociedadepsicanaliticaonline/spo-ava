@@ -1,0 +1,372 @@
+<html lang="pt-BR"><head></head><body class="bg-background text-on-surface font-body-lg min-h-screen flex">```html
+
+
+
+    <meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Certificados | SPO - Sociedade Psicanalítica Online</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#2e539d", // Azul Institucional
+                    "primary-deep": "#202646", // Azul Profundo
+                    "primary-light": "#4f5fa3", // Azul Claro
+                    "accent": "#7a2d2e", // Vermelho SPO
+                    "surface": "#f8f9fa",
+                    "on-surface": "#191c1d",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface-variant": "#44474e",
+                    "background": "#f8f9fa",
+                    "outline": "#75777f",
+                    "outline-variant": "#c5c6cf",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .text-balance { text-wrap: balance; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(225, 227, 228, 0.5);
+        }
+    </style>
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 docked left-0 bg-surface-container-low border-r border-outline-variant shadow-sm py-unit">
+<div class="px-6 py-8">
+<h1 class="font-headline-lg text-primary-deep text-title-md leading-tight">Portal do Aluno</h1>
+<p class="font-label-sm text-on-surface-variant mt-1">Sociedade Psicanalítica Online</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all font-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all font-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Meus Cursos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all font-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span>Materiais</span>
+</a>
+<!-- Active State Logic: Certificados is the current page -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-on-primary rounded-xl font-bold font-label-sm shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Certificados</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all font-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all font-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Suporte</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all font-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 h-screen overflow-y-auto bg-surface-container-lowest">
+<!-- Top Row (Mobile/Desktop Brand Header) -->
+<header class="sticky top-0 z-30 bg-surface/80 backdrop-blur-md px-6 md:px-margin-desktop py-6 flex justify-between items-center border-b border-outline-variant md:border-none">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-lg text-title-md text-primary-deep font-bold">Meus Certificados</span>
+<span class="font-label-sm text-on-surface-variant">Gestão e Validação de Conquistas Acadêmicas</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col text-right">
+<span class="font-label-sm font-bold text-primary-deep">Mariana Silva</span>
+<span class="font-label-sm text-on-surface-variant">Estudante de Psicanálise</span>
+</div>
+<img alt="Avatar" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACF9A64pHP_KyThxFd3gWao7l_hihpRPchHwHuI9g49CCaM2vFy-WRaMEEzMT2pop9U5OHeFbxt-LGLpYpuMujXAomorHJbUMXfJAoN_wJNqayazNtlv8RLMowjcmJ-mDXBmiemu4Pe_Ps9EE8oUteMxGDx7EDPCdbuO7sSMW6NpSngl3Js0Ho40Pl9nHMrBDymGOrtJPHOk8xsjZwQ2NI3pApdZAB6oLDq5SOxm26aY-dzEKnr-SnrIf9m4hIKwsYG0wgRAY5Ga8"/>
+</div>
+</header>
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop py-gutter">
+<!-- Verification Callout -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-12">
+<div class="lg:col-span-8 bg-primary-deep rounded-xl p-8 text-on-primary shadow-lg flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="flex-1 z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-balance">Verifique a autenticidade de qualquer certificado SPO</h2>
+<p class="font-body-lg text-on-primary/80 mb-6 max-w-xl">
+                            Todos os certificados emitidos pela Sociedade Psicanalítica Online possuem um código único de identificação para validação clínica e acadêmica.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:ring-2 focus:ring-primary-light focus:outline-none font-body-md" placeholder="Insira o código do certificado (ex: SPO-2024-X89)" type="text"/>
+<button class="bg-primary text-on-primary font-title-md px-8 py-3 rounded-lg hover:bg-primary-light transition-all flex items-center justify-center gap-2 shadow-md">
+<span class="material-symbols-outlined">verified_user</span>
+                                Verificar
+                            </button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 glass-card rounded-xl p-8 border border-outline-variant flex flex-col justify-center">
+<div class="mb-4 text-accent">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'opsz' 48;">workspace_premium</span>
+</div>
+<h3 class="font-title-md text-primary-deep mb-2">Total de Conquistas</h3>
+<p class="text-display-lg text-primary-deep font-bold">12</p>
+<p class="font-label-sm text-on-surface-variant mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-green-600">trending_up</span>
+                        2 novos este semestre
+                    </p>
+</div>
+</section>
+<!-- Certificates List -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h2 class="font-headline-lg text-headline-lg text-primary-deep">Certificados Emitidos</h2>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-variant transition-colors text-primary-deep">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-variant transition-colors text-primary-deep">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Certificate Card 1 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 bg-surface-container-high relative overflow-hidden">
+<img alt="Preview Certificado" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLfKG4OmPNJlHNQ8GIwKbIr6EzZenKa4yK83BgEno8TL0ynJ9MWQAwvWIHTiOjlybP6oYLAbapsLS6NcmZsvJ_DL6QkYoKCalIfR8OpwkhF4_77vahxVhdL6mHFQ42hvKFJ22MK9_7aaZapuoi44LXMRyMx5NLlXRiC13tj6nnogT99jURdarpBOGeuvcxedgE4FX7CGmQCrVsyCo-v4xH0hO-YSi9LYqWC6karYg-pAMYse5kr6oOHgpRoeiWMVSJnpCLO7hI5BA"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary-deep/40 backdrop-blur-sm">
+<button class="bg-white text-primary-deep px-6 py-2 rounded-full font-title-md flex items-center gap-2 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">visibility</span> Visualizar
+                                </button>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm px-2 py-1 bg-primary-light/10 text-primary-light rounded-full">Formação Continuada</span>
+<span class="text-on-surface-variant font-label-sm">Mai 2024</span>
+</div>
+<h4 class="font-title-md text-primary-deep group-hover:text-primary transition-colors mb-2">Introdução à Metapsicologia Freudiana</h4>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mb-6 flex-1">
+                                Carga horária total de 60 horas. Módulo avançado sobre as tópicas do aparelho psíquico.
+                            </p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
+<span class="font-label-sm text-outline">Ref: SPO-8812-A</span>
+<button class="flex items-center gap-2 text-primary hover:text-primary-light font-title-md transition-all">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+<span>Download PDF</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Certificate Card 2 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 bg-surface-container-high relative overflow-hidden">
+<img alt="Preview Certificado" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOWUzg5vkoWy-Minim2CvKxsdUZPrDpeVL_JIb9skO-k7xr_1aQc3YETEfgTRS5G7PxChNjTyl7KTvxiDbebK_gJu3yGPxGrDKJXUXxIXFKQ4l_bGOcY2DoM3nUmD0JDN5KhfRc4vLsyUIoGJIxtDH5TSzVqUcM4jijqOP0fSgvtsVpf8qcSLa3tq0XQv1_mKHGALmvp7z_NIY_MKKrASsam-h81iruYomyHknjU3M7hi2nW6SbU-nTssJl7rDtTW2nNol-EOiM8Y"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary-deep/40 backdrop-blur-sm">
+<button class="bg-white text-primary-deep px-6 py-2 rounded-full font-title-md flex items-center gap-2 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">visibility</span> Visualizar
+                                </button>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm px-2 py-1 bg-primary-light/10 text-primary-light rounded-full">Seminário Clínico</span>
+<span class="text-on-surface-variant font-label-sm">Mar 2024</span>
+</div>
+<h4 class="font-title-md text-primary-deep group-hover:text-primary transition-colors mb-2">A Técnica do Sonho em Psicanálise</h4>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mb-6 flex-1">
+                                Carga horária total de 24 horas. Estudo aprofundado dos mecanismos de condensação e deslocamento.
+                            </p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
+<span class="font-label-sm text-outline">Ref: SPO-7721-B</span>
+<button class="flex items-center gap-2 text-primary hover:text-primary-light font-title-md transition-all">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+<span>Download PDF</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Certificate Card 3 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 bg-surface-container-high relative overflow-hidden">
+<img alt="Preview Certificado" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDms7Qu4Hqc_NF6qOSjJYaKG7zSKbnl7O8fqGFmvXEsolprZXJ4jGcG_L2IzHCB7fWEid_FIJZ7caTvpmoKuzuwFu6Wp3yYSvWr1nGOSc4h_eTdc1cVHUiPMk4v9ugo6eNam19BG9z5E5Uv669bkVRewc5ZqYrA-Mcqw9Esib4h4eh7wdQxb2VedXD0Zno7zq02aQtB_IVOqLiqHciYyojoUtu5Hbq5shlNI8KUiEaV0A6zhLweey1jFbB7rwStioihA8RiGsUunJg"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary-deep/40 backdrop-blur-sm">
+<button class="bg-white text-primary-deep px-6 py-2 rounded-full font-title-md flex items-center gap-2 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">visibility</span> Visualizar
+                                </button>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm px-2 py-1 bg-primary-light/10 text-primary-light rounded-full">Congresso Anual</span>
+<span class="text-on-surface-variant font-label-sm">Dez 2023</span>
+</div>
+<h4 class="font-title-md text-primary-deep group-hover:text-primary transition-colors mb-2">Psicanálise e a Contemporaneidade</h4>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mb-6 flex-1">
+                                Certificado de participação como ouvinte nas 40 horas do congresso internacional.
+                            </p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant">
+<span class="font-label-sm text-outline">Ref: SPO-9904-C</span>
+<button class="flex items-center gap-2 text-primary hover:text-primary-light font-title-md transition-all">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+<span>Download PDF</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="mt-12 flex justify-center">
+<button class="bg-surface border border-outline-variant px-8 py-3 rounded-full font-title-md text-primary-deep hover:bg-primary-deep hover:text-white transition-all shadow-sm">
+                        Carregar Certificados Anteriores
+                    </button>
+</div>
+</section>
+<!-- Verification System Detail -->
+<section class="mt-20 py-12 border-t border-outline-variant">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1">
+<h3 class="font-headline-lg text-headline-lg text-primary-deep mb-6">Como funciona a verificação?</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-light/20 flex items-center justify-center shrink-0">
+<span class="text-primary-deep font-bold">1</span>
+</div>
+<div>
+<p class="font-title-md text-primary-deep">Localize o código</p>
+<p class="font-body-md text-on-surface-variant">No canto inferior esquerdo de qualquer certificado impresso ou digital, você encontrará um código alfanumérico único.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-light/20 flex items-center justify-center shrink-0">
+<span class="text-primary-deep font-bold">2</span>
+</div>
+<div>
+<p class="font-title-md text-primary-deep">Insira no Validador</p>
+<p class="font-body-md text-on-surface-variant">Utilize o campo de busca no topo desta página para consultar o registro oficial em nossa base de dados.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-light/20 flex items-center justify-center shrink-0">
+<span class="text-primary-deep font-bold">3</span>
+</div>
+<div>
+<p class="font-title-md text-primary-deep">Confirmação Digital</p>
+<p class="font-body-md text-on-surface-variant">O sistema retornará o nome do aluno, curso, carga horária e data de emissão para garantir a legitimidade do documento.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md">
+<div class="bg-white p-6 rounded-2xl shadow-xl border border-outline-variant relative">
+<div class="absolute -top-4 -right-4 bg-green-600 text-white p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-4 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-primary-deep rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<p class="font-label-sm font-bold text-primary-deep uppercase tracking-wider">Certificado Autenticado</p>
+<p class="text-[10px] text-on-surface-variant">Registro Digital Centralizado</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="h-2 bg-surface-variant rounded w-3/4"></div>
+<div class="h-2 bg-surface-variant rounded w-1/2"></div>
+<div class="h-2 bg-surface-variant rounded w-5/6"></div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant flex justify-between items-center">
+<div class="text-[10px] text-on-surface-variant">
+                                        HASH: 0x9f23...a4e1
+                                    </div>
+<div class="w-12 h-12 bg-surface-container rounded-sm"></div>
+</div>
+</div>
+<p class="text-center font-label-sm mt-4 text-on-surface-variant italic">Exemplo de validação bem-sucedida</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-unit bg-primary-deep">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-display-lg text-primary-light text-2xl">SPO</span>
+<p class="font-body-md text-on-primary/80 text-center md:text-left max-w-md">© 2024 Sociedade Psicanalítica Online. Todos os direitos reservados.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 mt-8 md:mt-0">
+<a class="font-label-sm text-surface-variant hover:text-primary-light transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm text-surface-variant hover:text-primary-light transition-colors" href="#">Privacidade</a>
+<a class="font-label-sm text-surface-variant hover:text-primary-light transition-colors" href="#">Trabalhe Conosco</a>
+<a class="font-label-sm text-surface-variant hover:text-primary-light transition-colors" href="#">FAQ</a>
+</div>
+</footer>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant flex justify-around items-center py-3 z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-[10px] font-medium">Cursos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+</a></nav></body></html>

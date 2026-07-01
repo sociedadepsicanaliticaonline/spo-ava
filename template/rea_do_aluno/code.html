@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Área do Aluno | SPO - Sociedade Psicanalítica Online</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Libre+Caslon+Text:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#4f5fa3",
+                "surface-variant": "#e1e3e4",
+                "tertiary-fixed": "#ffddb1",
+                "surface-dim": "#d9dadb",
+                "inverse-surface": "#2e3132",
+                "inverse-on-surface": "#f0f1f2",
+                "background": "#f8f9fa",
+                "primary-fixed": "#d8e2ff",
+                "on-error": "#ffffff",
+                "surface": "#f8f9fa",
+                "surface-container-high": "#e7e8e9",
+                "secondary-fixed": "#4f5fa3",
+                "on-surface": "#191c1d",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f8f9fa",
+                "on-secondary-container": "#ffffff",
+                "surface-container": "#edeeef",
+                "surface-container-low": "#f3f4f5",
+                "primary-fixed-dim": "#b6c6ef",
+                "on-tertiary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e1e3e4",
+                "on-tertiary-fixed-variant": "#5d4217",
+                "on-error-container": "#93000a",
+                "tertiary-container": "#3e2700",
+                "on-tertiary-container": "#b08d5b",
+                "error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#364768",
+                "outline": "#75777f",
+                "outline-variant": "#c5c6cf",
+                "on-background": "#191c1d",
+                "primary-container": "#202646",
+                "error": "#7a2d2e",
+                "tertiary": "#231400",
+                "secondary-fixed-dim": "#4f5fa3",
+                "primary": "#2e539d",
+                "inverse-primary": "#b6c6ef",
+                "on-primary-container": "#8293b8",
+                "on-surface-variant": "#44474e",
+                "on-secondary-fixed-variant": "#ffffff",
+                "tertiary-fixed-dim": "#e8c08a",
+                "on-primary-fixed": "#081b3a",
+                "secondary": "#4f5fa3",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed": "#291800",
+                "on-secondary-fixed": "#ffffff",
+                "surface-tint": "#2e539d",
+                "brand-primary": "#2e539d",
+                "brand-deep": "#202646",
+                "brand-accent": "#4f5fa3",
+                "brand-highlight": "#7a2d2e"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "unit": "8px",
+                "gutter": "24px",
+                "container-max": "1200px",
+                "margin-desktop": "64px",
+                "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                "title-md": ["Inter"],
+                "headline-lg-mobile": ["Libre Caslon Text"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-lg": ["Libre Caslon Text"],
+                "label-sm": ["Inter"],
+                "display-lg": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+                "body-lg": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .sidebar-active {
+            background-color: #2e539d;
+            color: #ffffff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-outline-variant flex flex-col py-unit shadow-sm z-50 overflow-y-auto">
+<div class="px-6 py-8">
+<h1 class="font-display-lg text-brand-primary text-2xl font-bold tracking-tight">SPO</h1>
+<p class="font-label-sm text-on-surface-variant mt-1">Sociedade Psicanalítica Online</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-brand-primary text-white rounded-xl font-bold transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-sm">Meus Cursos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-label-sm">Materiais</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-label-sm">Certificados</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm">Configurações</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-outline-variant">
+<div class="flex items-center gap-3 px-4 py-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-brand-deep flex items-center justify-center text-white overflow-hidden">
+<img alt="Foto do Estudante" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRXRcgdyD83_dSwulr-HWI9pllgZLEl7adc0ugUBmVu_Rii32xUXWH7GuavUzvbj9mIPFrCB788Rvsd9_kl31wCuaKijSrKFLmEnBIhHDb3BrgaOZXQw8KXHFig-Ye_-Iwnd97EZRIJa-Piw6atkoX7p4NpjUMaqJSLVUPx62uKYNuzlVKI7l_L4UGe2w85PSL_B8heytuSfF3IUolHW0E0QsH7iH6cPCYP1gTDcQaRsREBtCy45CbntrBed8nGrscuXeEKS-8CY4"/>
+</div>
+<div>
+<p class="font-title-md text-sm">Dr. Marcelo Silva</p>
+<p class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Psicanalista em Formação</p>
+</div>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all mb-2" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-sm">Suporte</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-brand-highlight hover:bg-brand-highlight/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-sm">Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Welcome Header -->
+<header class="mb-12">
+<h2 class="font-headline-lg text-headline-lg text-brand-deep mb-2">Bom dia, Marcelo.</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Pronto para continuar seus estudos hoje? Explore os módulos pendentes ou revise suas anotações clínicas.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Quick Resume Card (Large) -->
+<section class="col-span-12 lg:col-span-8 glass-card rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 rounded-full -mr-32 -mt-32"></div>
+<div class="w-full md:w-1/3 aspect-[4/3] rounded-lg overflow-hidden bg-surface-dim relative group">
+<img class="w-full h-full object-cover" data-alt="A serene psychoanalyst consulting room..." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjBXkfM9iL7xSuaQGGTIZ3IsIEhBBEP9odqOoMQKz-il8yQ7_tsj4xwoO-W6CvX903IZymEzQfM8_L6taqbiZuZKW4nJtzCPR-jqSN1yBx2CR6opPWDPSISEK-YWbuNDOB54cngw_U3I6f42W0TcWsKePAtfi5-8AxbZYirQkjm1wKMoMH8njNwcHbhxqL_AR-6a4TbSb9O5a-vT23PbYlnwWhfVHHNBSbDtOsb3HK-tXypB1NK7n5O0yizbJI4i9-ltf2Up57gI0"/>
+<div class="absolute inset-0 bg-brand-deep/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" data-icon="play_circle">play_circle</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between h-full">
+<div>
+<span class="bg-brand-deep text-white font-label-sm px-3 py-1 rounded-full mb-4 inline-block">CONTINUAR ASSISTINDO</span>
+<h3 class="font-headline-lg text-2xl text-brand-deep mb-2">Fundamentos da Clínica Freudiana</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Módulo 4: A Interpretação dos Sonhos e o Inconsciente.</p>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-sm text-brand-deep">Progresso do Módulo</span>
+<span class="font-label-sm text-brand-deep font-bold">65%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-brand-primary w-[65%] rounded-full"></div>
+</div>
+<button class="mt-6 bg-brand-deep text-white px-6 py-3 rounded-lg font-title-md hover:bg-brand-deep/90 transition-all flex items-center gap-2">
+                        Acessar Aula <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Upcoming Classes (Side) -->
+<section class="col-span-12 lg:col-span-4 bg-brand-deep text-white rounded-xl p-8 flex flex-col shadow-sm">
+<h3 class="font-title-md text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-accent" data-icon="event">event</span>
+                Próximas Atividades
+            </h3>
+<div class="space-y-6 flex-1">
+<div class="flex gap-4 border-l-2 border-brand-accent pl-4">
+<div class="flex-1">
+<p class="font-label-sm text-brand-accent opacity-90">HOJE, 19:30</p>
+<p class="font-title-md text-sm mt-1">Supervisão Clínica Online</p>
+<p class="font-body-md text-xs opacity-70">Com Dra. Helena Medeiros</p>
+</div>
+<button class="text-brand-accent"><span class="material-symbols-outlined" data-icon="link">link</span></button>
+</div>
+<div class="flex gap-4 border-l-2 border-white/20 pl-4">
+<div class="flex-1">
+<p class="font-label-sm text-white/60">QUARTA, 18:00</p>
+<p class="font-title-md text-sm mt-1">Seminário: Lacan e a Linguagem</p>
+<p class="font-body-md text-xs opacity-70">Auditório Virtual 2</p>
+</div>
+<button class="text-white/40"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10">
+<button class="text-brand-accent font-label-sm flex items-center gap-2 hover:underline">
+                    VER CALENDÁRIO COMPLETO <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Enrolled Courses Section Title -->
+<div class="col-span-12 mt-8 mb-4 flex justify-between items-end">
+<div>
+<h3 class="font-headline-lg text-xl text-brand-deep">Meus Cursos Matriculados</h3>
+<p class="font-body-md text-on-surface-variant">Gerencie sua jornada de aprendizado</p>
+</div>
+<button class="text-brand-primary font-title-md text-sm hover:underline">Ver todos</button>
+</div>
+<!-- Course Card 1 -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-xl overflow-hidden hover:shadow-md transition-all group">
+<div class="h-40 bg-surface-dim overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of a vintage typewriter..." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwHF0paOpBO3TsIfHmZ2pQjlcj73N99X_A81FhozXuVX3e9ZMdifeLKO5BZCVQZrLebPWReKxwEIp2W5QAfYKUCNZuxGRaM4dyZrNle77OHVtUifTcAOTR0dVkFfiqLUYrY71Cgt-sx5GTQag4x_Wh91WrNc4EHIv97KffPhIi-v1hZYsRt5D51oC__7auz4KOXTNpWAaWISuj2_Sm1UHBXFTFr4urDnVDQA3DGZbSI8yBll9MBAC-X1ociaCNdocC8S2NCfAm2FQ"/>
+<span class="absolute top-4 right-4 bg-brand-deep px-2 py-1 rounded text-[10px] font-bold text-white shadow-sm">ESPECIALIZAÇÃO</span>
+</div>
+<div class="p-6">
+<h4 class="font-title-md text-brand-deep mb-2">Introdução à Metapsicologia</h4>
+<p class="font-body-md text-on-surface-variant text-xs mb-6 line-clamp-2">Exploração profunda dos conceitos de pulsão, recalque e a primeira tópica freudiana.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container overflow-hidden">
+<img alt="Prof" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOviYkbDo9rEtCMitUld6HVQ4lJqtBP1-2wWTqbJOwbZgII8Ja0MJklHfXOEVHQOo8q3-j5gVFK9cPpLVWsLVO2gX_ccRelKGlP1SYEG3aFE-hZ3K6LTMlRRbwXWp_At5S5MtWhhEB4kGrqVKuZ30cehS-mbbj7lAP4btmIXd0KEHCE1aDaWgul8Z7GwYWJCQlHitIh2so4Qtlw74DQtshOmgOmVoSUgb24jKY3v9EAp0TtnlnRFfx926PHZc09sZOVE-WMs7klzM"/>
+</div>
+</div>
+<span class="font-label-sm text-brand-primary font-bold">12/20 Aulas</span>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-xl overflow-hidden hover:shadow-md transition-all group">
+<div class="h-40 bg-surface-dim overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed macro shot of a fountain pen nib..." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg15X1nH19O-rPWbgMAkmkdBniI5NxUtrCbNAHg-S_pzgoYwd9GtFB5XV9AbtnqwK7JQkyJaardRxh22sZQtLnfr80mP6huEmORxni0oJ16FYvVkeibScacbZI4D4UaaZp6V3C-Y1fw5YD3uFpNwISLlCcxrVbyZTMYScMoEFC2aNvYNXkKyNsNxKd8BzNhGEv3XJbqLRKbhhss9cn3RoVwQe-3p7w8H8Rezflp9WGWFxFU29JqM4PnYtysob9oDjIcAuYF0z21z4"/>
+<span class="absolute top-4 right-4 bg-brand-deep px-2 py-1 rounded text-[10px] font-bold text-white shadow-sm">SEMINÁRIO</span>
+</div>
+<div class="p-6">
+<h4 class="font-title-md text-brand-deep mb-2">Psicanálise e Linguagem</h4>
+<p class="font-body-md text-on-surface-variant text-xs mb-6 line-clamp-2">A estrutura do inconsciente e as contribuições linguísticas para a clínica moderna.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container overflow-hidden">
+<img alt="Prof" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBCElMOmlO-1LFZGpmMuJV9ADNLZBn9NHBnQPqyBKokwmkDc-wNxHKtxA5FRLaBXTv-YPeNby99iglLdQ57yTjoZGr3AGcIG_MzbEl-xZXQAldUMibWtWC7nD8rvy2YJnpcfLUjcGnEJOOyN-VHzTXHYHNpK4H_JY0LNddK793LJ6Et-5N6lklf8JjBMUMnhtUzmvin5K6IkyVI2piDD1RbBxsMbYMUidICo3YC3nLelEIN5doRa2Hr7UrWLNFsJ56BWRdR8daHos"/>
+</div>
+</div>
+<span class="font-label-sm text-brand-primary font-bold">04/15 Aulas</span>
+</div>
+</div>
+</div>
+<!-- Library/Access Rapid Section -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<div class="bg-surface-container-high rounded-xl p-6 flex flex-col gap-4">
+<h4 class="font-title-md text-brand-deep text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-primary" data-icon="bolt">bolt</span>
+                    Acesso Rápido
+                </h4>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center p-4 bg-white rounded-lg hover:bg-brand-primary/10 transition-all border border-outline-variant/50 group">
+<span class="material-symbols-outlined text-brand-primary group-hover:scale-110 transition-transform mb-2" data-icon="article">article</span>
+<span class="font-label-sm text-[10px]">Biblioteca</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white rounded-lg hover:bg-brand-primary/10 transition-all border border-outline-variant/50 group">
+<span class="material-symbols-outlined text-brand-primary group-hover:scale-110 transition-transform mb-2" data-icon="forum">forum</span>
+<span class="font-label-sm text-[10px]">Fórum</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white rounded-lg hover:bg-brand-primary/10 transition-all border border-outline-variant/50 group">
+<span class="material-symbols-outlined text-brand-primary group-hover:scale-110 transition-transform mb-2" data-icon="video_library">video_library</span>
+<span class="font-label-sm text-[10px]">Gravadas</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white rounded-lg hover:bg-brand-primary/10 transition-all border border-outline-variant/50 group">
+<span class="material-symbols-outlined text-brand-primary group-hover:scale-110 transition-transform mb-2" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-[10px]">Financeiro</span>
+</button>
+</div>
+</div>
+<!-- Support Card -->
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-6 text-center">
+<p class="font-body-md text-xs text-on-surface-variant mb-4">Dúvidas sobre a plataforma ou sua formação?</p>
+<button class="w-full py-2 border border-brand-primary text-brand-primary rounded-lg font-title-md text-sm hover:bg-brand-primary hover:text-white transition-all">
+                    Falar com Suporte
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer Anchor -->
+<footer class="mt-20 py-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant opacity-60">
+<p class="font-label-sm">© 2024 Sociedade Psicanalítica Online. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="font-label-sm hover:text-brand-primary transition-colors" href="#">Termos de Uso</a>
+<a class="font-label-sm hover:text-brand-primary transition-colors" href="#">Privacidade</a>
+<a class="font-label-sm hover:text-brand-primary transition-colors" href="#">FAQ</a>
+</div>
+</footer>
+</main>
+<!-- Interactions & Micro-effects -->
+<script>
+    document.querySelectorAll('button, a').forEach(elem => {
+        elem.addEventListener('mousedown', () => {
+            elem.classList.add('scale-95', 'opacity-80');
+        });
+        elem.addEventListener('mouseup', () => {
+            elem.classList.remove('scale-95', 'opacity-80');
+        });
+        elem.addEventListener('mouseleave', () => {
+            elem.classList.remove('scale-95', 'opacity-80');
+        });
+    });
+</script>
+</body></html>

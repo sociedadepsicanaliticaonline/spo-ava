@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ambiente de Aulas - SPO</title>
+<!-- Google Fonts: Inter for UI & Body, Libre Caslon Text for Headlines -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Libre+Caslon+Text:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f8f9fa",
+                    "tertiary-fixed": "#ffddb1",
+                    "inverse-primary": "#b6c6ef",
+                    "inverse-surface": "#202646",
+                    "background": "#f8f9fa",
+                    "secondary": "#4f5fa3",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#3e2700",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "on-primary-fixed": "#ffffff",
+                    "on-primary-container": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#2e539d",
+                    "surface-bright": "#f8f9fa",
+                    "secondary-container": "#e1e6f3",
+                    "error": "#7a2d2e",
+                    "secondary-fixed-dim": "#b6c6ef",
+                    "tertiary-fixed-dim": "#e8c08a",
+                    "on-surface-variant": "#44474e",
+                    "surface-container-low": "#f3f4f5",
+                    "on-background": "#191c1d",
+                    "outline-variant": "#c5c6cf",
+                    "primary-fixed-dim": "#b6c6ef",
+                    "on-primary-fixed-variant": "#ffffff",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-high": "#e7e8e9",
+                    "outline": "#75777f",
+                    "on-secondary-container": "#2e539d",
+                    "on-secondary-fixed-variant": "#202646",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#2e539d",
+                    "on-tertiary-fixed": "#291800",
+                    "tertiary": "#7a2d2e",
+                    "surface-dim": "#d9dadb",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#4f5fa3",
+                    "primary-container": "#202646",
+                    "on-tertiary-container": "#b08d5b",
+                    "on-tertiary-fixed-variant": "#5d4217",
+                    "surface-tint": "#2e539d",
+                    "on-secondary-fixed": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "surface-variant": "#e1e3e4",
+                    "spo-red": "#7a2d2e",
+                    "spo-blue-deep": "#202646",
+                    "spo-blue-brand": "#2e539d",
+                    "spo-blue-light": "#4f5fa3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.5rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c5c6cf;
+            border-radius: 10px;
+        }
+        .video-overlay-gradient {
+            background: linear-gradient(0deg, rgba(32,38,70,0.8) 0%, rgba(32,38,70,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg text-body-lg min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-spo-blue-deep border-b border-outline-variant dark:border-spo-blue-deep sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-title-md font-bold text-spo-blue-brand dark:text-surface">SPO</span>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<h1 class="font-title-md text-title-md text-spo-blue-brand hidden md:block">Portal do Aluno</h1>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-spo-blue-brand transition-colors" href="#">Cursos</a>
+<a class="text-on-surface-variant hover:text-spo-blue-brand transition-colors" href="#">Eventos</a>
+<a class="text-on-surface-variant hover:text-spo-blue-brand transition-colors" href="#">Materiais</a>
+<a class="text-on-surface-variant hover:text-spo-blue-brand transition-colors" href="#">FAQ</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="font-label-sm text-label-sm text-on-surface font-bold">Estudante de Psicanálise</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">ID: 48920</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-spo-blue-light/10 flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Avatar" data-alt="A professional headshot of a mature student with a kind expression, wearing clinical attire. The lighting is soft and academic, set against a blurred library background with warm, intellectual tones. High-end modern photography with a focused, serene aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZk36mSPcxsHCJlUS2vGh5ypEANc7MvTWssvpABrOhe5RWtZVb2k0COxkNeWnuPtXn3wKVTXa--dfoGano14SGsQyPfePJ33ExndOWolmVjmpUb7HKc-kyPidaSWCzsQDUGHE6CPtWdW3AMoDhLsF0qoJUfTErkly0WACQNyKdVD5aTOtymiHoGCvukNNdSALpLKLqj2KThORiqcir_B6VnDrHOYJbg2eucVSrF7W9rFE6mQLU1R_aoKFxVEcpfupm22FIcTIwcsM"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full w-72 bg-surface-container-low border-r border-outline-variant py-gutter overflow-y-auto custom-scrollbar">
+<div class="px-6 mb-8">
+<h2 class="font-title-md text-title-md text-spo-blue-deep mb-1">Módulos do Curso</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Introdução à Metapsicologia</p>
+</div>
+<!-- Course Modules List -->
+<div class="flex-1 space-y-2 px-3">
+<!-- Module 1 -->
+<div class="space-y-1">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-variant transition-all text-left" onclick="toggleModule('mod1')">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-on-surface-variant">Módulo 1: O Inconsciente</span>
+<span class="material-symbols-outlined text-outline" id="icon-mod1">expand_more</span>
+</button>
+<div class="space-y-1 pl-2" id="mod1">
+<a class="flex items-center gap-3 p-3 bg-spo-blue-light/10 text-spo-blue-brand rounded-lg font-bold transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-sm text-label-sm">01. Fundamentos da Pulsão</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">02. A Primeira Tópica</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">03. Recalque e Resistência</span>
+</a>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="space-y-1 mt-4">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-variant transition-all text-left" onclick="toggleModule('mod2')">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-on-surface-variant">Módulo 2: Sonhos</span>
+<span class="material-symbols-outlined text-outline" id="icon-mod2">expand_more</span>
+</button>
+<div class="hidden space-y-1 pl-2" id="mod2">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">04. O Conteúdo Manifesto</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">05. Trabalho do Sonho</span>
+</a>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="space-y-1 mt-4">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-variant transition-all text-left opacity-60">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-on-surface-variant">Módulo 3: Clínica</span>
+<span class="material-symbols-outlined text-outline">lock</span>
+</button>
+</div>
+</div>
+<div class="mt-auto px-6 py-4 border-t border-outline-variant">
+<button class="w-full py-3 bg-spo-blue-deep text-white rounded-lg font-title-md text-body-md hover:bg-spo-blue-brand transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                Emitir Certificado
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto custom-scrollbar bg-background">
+<div class="max-w-5xl mx-auto px-margin-mobile md:px-gutter py-gutter">
+<!-- Video Player Section -->
+<section class="w-full aspect-video bg-spo-blue-deep rounded-xl overflow-hidden shadow-2xl relative group cursor-pointer border border-spo-blue-deep">
+<div class="absolute inset-0 flex items-center justify-center">
+<img alt="Video Placeholder" class="w-full h-full object-cover opacity-60" data-alt="A high-definition cinematic capture of a psychoanalyst's office featuring a classic leather chaise longue and a rich mahogany bookshelf in the background. The lighting is dramatic yet warm, emphasizing the textures of the leather and the spines of the books. Deep blue and gold tones dominate the scene, evoking a mood of intellectual depth and historical academic authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw5140pM1sP5wTEQ0VIwAu50siSUmfSZJBUyq-j_BMeu_He86s3jshBe0weT64iSfrr9QsuhwZ_-A7gl3DzI2hJTKsnBKfu6oLyLUwS7Y5LNCWzfA-zgCEg-hvUabKIUIvZkIoy9ywJ6ZLXkBLuw8eBNq3La4rd6lr-aq9e9d7jAL6Rgv3jHXVKxB9UXKtz2CqEtDerz87Q2SptTyefOnc4V04sNWGD6S4xpzFfoOVY0RBUyyk6ApaxIbd1plT--VFZS7xU2kHZiQ"/>
+<div class="w-20 h-20 bg-spo-blue-brand rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<!-- Controls Mockup -->
+<div class="absolute bottom-0 left-0 right-0 p-6 video-overlay-gradient translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all">
+<div class="h-1.5 w-full bg-white/20 rounded-full mb-4 overflow-hidden">
+<div class="h-full bg-spo-blue-light w-[45%]"></div>
+</div>
+<div class="flex items-center justify-between text-white">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined">pause</span>
+<span class="material-symbols-outlined">skip_next</span>
+<span class="material-symbols-outlined">volume_up</span>
+<span class="font-label-sm text-label-sm">12:45 / 45:00</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined">closed_caption</span>
+<span class="material-symbols-outlined">settings</span>
+<span class="material-symbols-outlined">fullscreen</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Class Title and Info -->
+<div class="mt-8 mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 bg-spo-blue-light text-white rounded font-label-sm text-[10px] uppercase font-bold tracking-widest">AULA 01</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• Módulo 1</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-spo-blue-deep">Fundamentos da Pulsão na Obra de Freud</h2>
+<p class="text-on-surface-variant mt-3 max-w-2xl leading-relaxed">Nesta aula, exploramos as raízes conceituais da pulsão (Trieb), diferenciando-a do instinto biológico e analisando sua importância na primeira tópica freudiana. Abordaremos os conceitos de fonte, pressão, alvo e objeto.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-3 border border-spo-blue-brand text-spo-blue-brand rounded-lg font-bold hover:bg-spo-blue-brand hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+                            Gostei
+                        </button>
+<button class="flex items-center gap-2 px-6 py-3 bg-spo-blue-brand text-white rounded-lg font-bold hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+                            Salvar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Bento Grid for Complementary Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Download Materials -->
+<div class="md:col-span-2 space-y-gutter">
+<div class="bg-white border border-outline-variant p-gutter rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-spo-blue-brand" style="font-variation-settings: 'FILL' 1;">description</span>
+<h3 class="font-title-md text-title-md text-spo-blue-deep">Materiais Complementares</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg border border-outline-variant hover:border-spo-blue-light transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-spo-red/10 text-spo-red flex items-center justify-center rounded">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface font-semibold">Leitura Obrigatória: Pulsões e seus Destinos (1915)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">PDF • 1.2 MB • 24 páginas</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-spo-blue-light/10 transition-all text-on-surface">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg border border-outline-variant hover:border-spo-blue-light transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-spo-blue-brand/10 text-spo-blue-brand flex items-center justify-center rounded">
+<span class="material-symbols-outlined">list_alt</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface font-semibold">Guia de Exercícios e Reflexões da Aula 01</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">DOCX • 450 KB • 5 páginas</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-spo-blue-light/10 transition-all text-on-surface">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Class Description/Notes -->
+<div class="bg-white border border-outline-variant p-gutter rounded-xl shadow-sm">
+<h3 class="font-title-md text-title-md text-spo-blue-deep mb-4">Notas do Instrutor</h3>
+<div class="prose prose-stone max-w-none text-on-surface-variant">
+<p class="mb-4">Para um melhor aproveitamento desta aula, recomenda-se a leitura prévia do texto 'Três Ensaios sobre a Teoria da Sexualidade' (1905). Foco especial na distinção entre a necessidade biológica e o desejo psíquico.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li>Conceito de Aparelho Psíquico</li>
+<li>As quatro características da Pulsão</li>
+<li class="text-spo-red font-medium">Pulsões de Vida vs. Pulsões de Morte</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Discussion/Sidebar Widgets -->
+<div class="space-y-gutter">
+<div class="bg-white border border-outline-variant p-6 rounded-xl shadow-sm">
+<h3 class="font-title-md text-title-md text-spo-blue-deep mb-4">Próxima Aula</h3>
+<div class="relative rounded-lg overflow-hidden group cursor-pointer mb-3">
+<img alt="Next Lesson" class="w-full h-32 object-cover group-hover:scale-110 transition-all duration-500" data-alt="A close-up artistic photograph of antique medical journals and handwritten notes on parchment paper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEXrkC3-xh9sOe4H12Hzhxw9TwfJcRcYwNOjvBMlhBtMnigWSUCEOiZ88x_-FvwvwmkkWmTHF6rOkqdiD6OVuXnM7NkD_gNI_yYiigeNND_3v-6FlE_IQnTQvNvkRaOnafCQ-GFJpRvtleL8ivE9X9-GduYgrprJBFZH0JNyGvfnEC6TpE_MYjBf7tVAOHPVafEQsW_2uxre0upV74M14rI8aTFF1uUrUNbrSR6weEnOFEy2TpmKCUicYpvWrOafmJBn-4LheSrFg"/>
+<div class="absolute inset-0 bg-spo-blue-deep/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-white text-3xl">play_circle</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface font-bold">02. A Primeira Tópica e o Recalque</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Duração: 52:10</p>
+<button class="w-full mt-4 py-2 border border-outline text-on-surface-variant rounded font-label-sm hover:bg-surface transition-all">Ver Detalhes</button>
+</div>
+<div class="bg-spo-blue-light/10 border border-spo-blue-light/20 p-6 rounded-xl">
+<h3 class="font-title-md text-title-md text-spo-blue-brand mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined">help_center</span>
+                            Dúvidas?
+                        </h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm mb-4">Interaja com os outros alunos e com o professor desta aula no fórum de discussão.</p>
+<button class="w-full py-3 bg-spo-blue-light text-white rounded-lg font-bold text-label-sm hover:bg-spo-blue-brand transition-all">Acessar Fórum</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-spo-blue-deep mt-12 border-t border-spo-blue-deep">
+<div class="w-full py-margin-desktop px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-unit-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
+<span class="font-display-lg text-white text-2xl">SPO</span>
+<p class="text-white/60 font-label-sm text-label-sm">© 2024 Sociedade Psicanalítica Online. Todos os direitos reservados.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-white/80 font-label-sm text-label-sm hover:text-white transition-colors" href="#">Termos de Uso</a>
+<a class="text-white/80 font-label-sm text-label-sm hover:text-white transition-colors" href="#">Privacidade</a>
+<a class="text-white/80 font-label-sm text-label-sm hover:text-white transition-colors" href="#">Trabalhe Conosco</a>
+<a class="text-white/80 font-label-sm text-label-sm hover:text-white transition-colors underline" href="#">FAQ</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<!-- Mobile Navigation -->
+<nav class="md:hidden flex justify-around items-center bg-surface border-t border-outline-variant py-3 fixed bottom-0 left-0 right-0 z-50">
+<button class="flex flex-col items-center gap-1 text-spo-blue-brand">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-[10px] font-bold">Aulas</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">library_books</span>
+<span class="text-[10px] font-bold">Materiais</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px] font-bold">Fórum</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</button>
+</nav>
+<script>
+    function toggleModule(id) {
+        const moduleContent = document.getElementById(id);
+        const icon = document.getElementById('icon-' + id);
+        
+        if (moduleContent.classList.contains('hidden')) {
+            moduleContent.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            moduleContent.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+        }
+    }
+    
+    document.querySelectorAll('[id^="icon-"]').forEach(icon => {
+        icon.style.transition = 'transform 0.3s ease';
+    });
+</script>
+</body></html>
