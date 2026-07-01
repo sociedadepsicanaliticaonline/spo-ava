@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { PDFDocument, StandardFonts, rgb, PageSizes, degrees } from "pdf-lib";
 import QRCode from "qrcode";
-import { promises as fs } from "fs";
-import path from "path";
 import { db } from "@/data/store";
+import { LOGO_DARK_BASE64 } from "@/lib/embedded-assets";
 import type { Certificate, Lesson, Seminar, User } from "@/types";
 
 export const runtime = "nodejs";
@@ -75,8 +74,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
 
   // Logo no canto esquerdo da faixa (versão para fundo escuro)
   try {
-    const logoPath = path.join(process.cwd(), "src", "assets", "logo-02.png");
-    const logoBytes = await fs.readFile(logoPath);
+    const logoBytes = Buffer.from(LOGO_DARK_BASE64, "base64");
     const logoImg = await pdf.embedPng(logoBytes);
     const logoHeight = 40;
     const logoWidth = (logoImg.width / logoImg.height) * logoHeight;
@@ -87,7 +85,6 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       height: logoHeight,
     });
   } catch {
-    // fallback textual se a logo não estiver disponível
     page.drawText("SOCIEDADE PSICANALÍTICA ONLINE", {
       x: m + 30,
       y: height - m - 32,
