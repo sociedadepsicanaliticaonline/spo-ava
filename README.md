@@ -4,6 +4,8 @@ Plataforma de formação continuada da **Sociedade Psicanalítica Online** — s
 
 Stack: **Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS v4**.
 
+**🌐 Produção:** https://spo-learning.sociedadepsicanaliticaonline.workers.dev
+
 ---
 
 ## Quick start (desenvolvimento local)
@@ -117,6 +119,26 @@ A flag **`nodejs_compat`** é obrigatória (o runtime `nodejs` da rota de PDF de
 ### Custom domain
 
 Após o primeiro deploy, configure o domínio customizado no painel do Cloudflare (Workers → spo-learning → Settings → Triggers → Custom Domains).
+
+### Primeiro deploy
+
+```bash
+# 1. Instalar dependências
+npm install
+
+# 2. Autenticar no Cloudflare (uma vez por máquina)
+npx wrangler login
+# OU use um API token via env var:
+export CLOUDFLARE_API_TOKEN=seu_token
+export CLOUDFLARE_ACCOUNT_ID=seu_account_id
+
+# 3. Deploy
+npm run deploy:cf
+```
+
+O script `deploy:cf` executa automaticamente `prebuild:cf` que regenera as logos em base64, depois roda `opennextjs-cloudflare deploy` que compila o bundle em `.open-next/` e publica no Cloudflare Workers.
+
+> ⚠️ **Nunca** commite credenciais no repositório. O `.gitignore` já ignora `.dev.vars` e `.wrangler/`.
 
 ---
 
